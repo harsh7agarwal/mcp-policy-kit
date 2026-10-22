@@ -1,6 +1,6 @@
 import { ActionContext, ApprovalHandler, PolicyDecision, PolicyEngine, ToolHandler } from './types.js';
 
-export interface WrappedToolResult<T = any> {
+export interface WrappedToolResult<T = unknown> {
   executed: boolean;
   decision: PolicyDecision;
   result?: T;
@@ -10,7 +10,7 @@ export interface WrappedToolResult<T = any> {
   };
 }
 
-export function wrapToolHandler<TArgs = any, TResult = any>(
+export function wrapToolHandler<TArgs = unknown, TResult = unknown>(
   handler: ToolHandler<TArgs, TResult>,
   engine: PolicyEngine,
   onApprovalRequired?: ApprovalHandler<TArgs>

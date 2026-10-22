@@ -11,7 +11,7 @@ export interface PolicyRule {
 
 export interface Policy {
   version: string;
-  defaultEffect: PolicyEffect;
+  defaultEffect: 'deny';
   rules: PolicyRule[];
 }
 
@@ -36,7 +36,7 @@ export interface PolicyEngine {
   getHash(): string;
 }
 
-export type ToolHandler<TArgs = any, TResult = any> = (args: TArgs) => Promise<TResult>;
+export type ToolHandler<TArgs = unknown, TResult = unknown> = (args: TArgs) => Promise<TResult>;
 
 export type ApprovalHandler<TArgs = any> = (
   context: ActionContext,

@@ -26,10 +26,8 @@ export function createPolicyEngine(rawPolicy: unknown): PolicyEngine {
         }
 
         // Resource scope check (optional)
-        if (rule.resourceScope && context.resource) {
-          if (rule.resourceScope !== context.resource) {
-            return false;
-          }
+        if (rule.resourceScope !== undefined && rule.resourceScope !== context.resource) {
+          return false;
         }
 
         return true;
